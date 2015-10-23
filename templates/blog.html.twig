@@ -1,9 +1,10 @@
 {% embed 'partials/base.html.twig' %}
 
-	{% set collection = page.collection() %}
+{% set collection = page.collection() %}
 
-	{% block content %}
-		<div class="container">
+{% block content %}
+	<div class="container">
+		<section>
 			{% set blog_image = page.media.images|first.grayscale().contrast(20).brightness(-100).colorize(-35,81,122) %}
 
 			{% if blog_image %}
@@ -18,7 +19,9 @@
 				{% include 'partials/breadcrumbs.html.twig' %}
 			{% endif %}
 			<div class="row">
-				<div class="col-md-8">
+				<div class="col-md-10">
+					<h1 style="font-size:50px;margin-top:0">Блог</h1>
+					<hr>
 					{% for child in collection %}
 				        <div class="row">
 				        	<div class="col-md-12">
@@ -31,11 +34,12 @@
 			            {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
 			        {% endif %}
 				</div>
-				<div class="col-md-4">
+				<!-- <div class="col-md-2">
 					{% include 'partials/sidebar.html.twig' with {'blog':page} %}
-				</div>
+				</div> -->
 			</div>
-		</div>
-	{% endblock %}
+		</section>
+	</div>
+{% endblock %}
 
 {% endembed %}
