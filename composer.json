@@ -1,0 +1,23 @@
+{
+    "name": "psybaron/onivo-theme-alfa",
+    "type": "onivo-theme",
+    "description": "Onivo Alfa is the first Onivo website theme",
+    "homepage": "http://onivo.mk",
+    "authors": [
+        {
+            "name": "Marko Aleksic",
+            "email": "iam@markoaleksic.com",
+            "homepage": "http://markoaleksic.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "composer/installers": "~1.0"
+    },
+    "extra": {
+        "installer-name": "alfa",
+        "installer-paths": {
+            "user/themes/{$name}/": ["psybaron/onivo-theme-alfa"]
+        }
+    }
+}

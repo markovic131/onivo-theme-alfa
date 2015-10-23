@@ -1,0 +1,41 @@
+{% embed 'partials/base.html.twig' %}
+
+	{% set collection = page.collection() %}
+
+	{% block content %}
+		<div class="container">
+			{% set blog_image = page.media.images|first.grayscale().contrast(20).brightness(-100).colorize(-35,81,122) %}
+
+			{% if blog_image %}
+				<div class="flush-top blog-header blog-header-image" style="background-image: url({{ blog_image.url }});">
+			{% else %}
+				<div class="blog-header">
+			{% endif %}
+				{{ page.content }}
+			</div>
+
+			{% if config.plugins.breadcrumbs.enabled %}
+				{% include 'partials/breadcrumbs.html.twig' %}
+			{% endif %}
+			<div class="row">
+				<div class="col-md-8">
+					{% for child in collection %}
+				        <div class="row">
+				        	<div class="col-md-12">
+				        		{% include 'partials/blog_item.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
+				        	</div>
+				        </div>
+				    {% endfor %}
+
+			        {% if config.plugins.pagination.enabled and collection.params.pagination %}
+			            {% include 'partials/pagination.html.twig' with {'base_url':page.url, 'pagination':collection.params.pagination} %}
+			        {% endif %}
+				</div>
+				<div class="col-md-4">
+					{% include 'partials/sidebar.html.twig' with {'blog':page} %}
+				</div>
+			</div>
+		</div>
+	{% endblock %}
+
+{% endembed %}
