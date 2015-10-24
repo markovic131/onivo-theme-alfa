@@ -5,18 +5,19 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        {#{% if header.description %}
+
+        {% if header.description %}
             <meta name="description" content="{{ header.description }}">
         {% else %}
             <meta name="description" content="{{ site.metadata.description }}">
-        {% endif %} #}
+        {% endif %}
 
         {% include 'partials/metadata.html.twig' %}
 
         <link rel="icon" type="image/png" href="{{ url("theme://images/favicon.png") }}">
         <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ url("theme://images/apple-touch-icon-precomposed.png") }}">
 
-        <title>{% if header.title %}{{ header.title }} &middot; {% endif %}{{ site.title }} Сè што Ви е потребно за Вашиот бизнис!</title>
+        <title>{% if header.title %}{{ header.title }} &middot; {% endif %}{{ site.title }} - Сè што Ви е потребно за Вашиот бизнис!</title>
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,500&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
