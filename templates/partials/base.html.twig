@@ -22,7 +22,7 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
         {% block stylesheets %}
             {# Bootstrap core CSS #}
-            {% do assets.add('theme://css-compiled/onivo.css',101) %}
+            {% do assets.add('theme://css/onivo.css',101) %}
             {{ assets.css() }}
         {% endblock %}
 
@@ -39,8 +39,7 @@
 
         {% block javascripts %}
             {% do assets.add('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', 101) %}
-            {% do assets.add('theme://js/bootstrap.min.js') %}
-            {% do assets.add('theme://js/app.js') %}
+            {% do assets.add('theme://js/app.min.js') %}
 
             {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
                 {% do assets.add('https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js') %}
