@@ -1,0 +1,21 @@
+{
+  "name": "onivo-theme-alfa",
+  "description": "Onivo Website Theme Alfa",
+  "main": "",
+  "authors": [
+    "Marko Aleksic"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/psybaron/onivo-theme-alfa",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5"
+  }
+}
