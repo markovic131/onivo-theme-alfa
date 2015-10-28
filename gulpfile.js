@@ -19,7 +19,7 @@ gulp.task('styles', function () {
 
 gulp.task('scripts', function() {
     return gulp.src([
-        //'./bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
+        './bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js',
         './assets/js/app.js',
     ])
     .pipe(concat('app.min.js'))
