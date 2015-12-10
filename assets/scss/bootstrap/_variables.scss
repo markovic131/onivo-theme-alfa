@@ -29,7 +29,7 @@ $brand-danger:          #d9534f;
 //** Background color for `<body>`.
 $body-bg:               #fff;
 //** Global text color on `<body>`.
-$text-color:            $gray-dark;
+$text-color:            lighten($gray-base, 28.5%);
 
 //** Global textual link color.
 $link-color:            $brand-primary;

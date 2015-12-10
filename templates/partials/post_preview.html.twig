@@ -1,0 +1,19 @@
+<div class="post-preview">
+    <a href="{{ page.url }}">
+        <h2 class="post-title">
+            {{ page.title }}
+        </h2>
+        {% if page.subtitle %}
+            <h3 class="post-subtitle">
+                {{ page.subtitle }}
+            </h3>
+        {% else %}
+            <h3 class="post-subtitle">
+                {{ page.summary|truncate(100) }}
+            </h3>
+        {% endif %}
+    </a>
+    <p class="post-meta">
+        Објавено на {{ page.date|date('d.m.Y') }}
+    </p>
+</div>

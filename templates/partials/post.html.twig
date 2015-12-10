@@ -1,0 +1,95 @@
+{% set header_image = page.header.header_image|defined(true) %}
+{% set header_image_width  = page.header.header_image_width|defined(900) %}
+{% set header_image_height = page.header.header_image_height|defined(300) %}
+{% set header_image_file = page.header.header_image_file %}
+
+{% set post_image = page.media.images|first.contrast(30).brightness(-50) %}
+
+<!-- <header class="intro-header" style="background-image: url({{ post_image.url }});">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1> {{ page.title }} </h1>
+                    <p>
+                        <small>Posted by Onivo on {{ page.date|date("M d, Y") }} </small>
+                    </p>
+                </div>
+                {% if header_image %}
+                    {% if header_image_file %}
+                        {% set header_image_media = page.media.images[header_image_file] %}
+                    {% else %}
+                        {% set header_image_media = page.media.images|first %}
+                    {% endif %}
+                    <p>
+                        {{ header_image_media.cropZoom(header_image_width, header_image_height).html('','','img-responsive') }}
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</header> -->
+<article class="post">
+    <div class="container">
+        <div class="col-lg-8 col-md-10">
+            <h1> {{ page.title }} </h1>
+            <p>
+                <small>Објавено од {{ page.header.author }} на {{ page.date|date('d.m.Y') }}</small>
+            </p>
+            {% if header_image %}
+                {% if header_image_file %}
+                    {% set header_image_media = page.media.images[header_image_file] %}
+                {% else %}
+                    {% set header_image_media = page.media.images|first %}
+                {% endif %}
+                <p style="padding-bottom:30px">
+                    {{ header_image_media.cropZoom(header_image_width, header_image_height).html('','','img-responsive') }}
+                </p>
+            {% endif %}
+            <div class="post-content">
+                {{ page.content }}
+            </div>
+            <hr>
+            {% if page.taxonomy.tag %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="tweet" class="pull-left" style="margin-right:10px;">
+                            <a class="twitter-share-button"
+                               href="https://twitter.com/share"
+                              data-via="onivomk"
+                              data-text="{{ page.title|truncate(50) }}"
+                              data-hashtags="GoOnivo, Onivo"
+                              data-count="vertical">
+                            Tweet
+                            </a>
+                        </div>
+                        <div class="pull-left fb-share-button" data-href="{{ uri.url(true) }}" data-layout="button"></div>
+                    </div>
+                    <!-- <div class="col-md-6">
+                        <div class="post-tags">
+                            {% for tag in page.taxonomy.tag %}
+                                <a href="{{ blog.url }}/tag{{ config.system.param_sep }}{{ tag }}" class="post-tag">
+                                    <span class="label label-primary">
+                                        {{ tag }}
+                                    </span>
+                                </a>&nbsp;
+                            {% endfor %}
+                        </div>
+                    </div> -->
+                </div>
+            {% endif %}
+            <ul class="pager">
+                {% if not page.isFirst %}
+                    <li class="previous">
+                        <a class="button" href="{{ page.nextSibling.url }}"><i class="fa fa-chevron-left"></i> Претходна Статија</a>
+                    </li>
+                {% endif %}
+                {% if not page.isLast %}
+                    <li class="next">
+                        <a class="button" href="{{ page.prevSibling.url }}">Следна Статија <i class="fa fa-chevron-right"></i></a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</article>
