@@ -1,6 +1,6 @@
 {% set header_image = page.header.header_image|defined(true) %}
-{% set header_image_width  = page.header.header_image_width|defined(900) %}
-{% set header_image_height = page.header.header_image_height|defined(300) %}
+{% set header_image_width  = page.header.header_image_width|defined(660) %}
+{% set header_image_height = page.header.header_image_height|defined(220) %}
 {% set header_image_file = page.header.header_image_file %}
 
 {% set post_image = page.media.images|first.contrast(30).brightness(-50) %}
@@ -33,10 +33,10 @@
     <div class="container">
         <div class="col-lg-8 col-md-10">
             <h1> {{ page.title }} </h1>
+            {% if header_image %}
             <p>
                 <small>Објавено од {{ page.header.author }} на {{ page.date|date('d.m.Y') }}</small>
             </p>
-            {% if header_image %}
                 {% if header_image_file %}
                     {% set header_image_media = page.media.images[header_image_file] %}
                 {% else %}
