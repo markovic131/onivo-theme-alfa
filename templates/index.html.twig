@@ -1,8 +1,9 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
+    {% set showcase_image = page.media.images|first.contrast(35).brightness(-110).colorize(50,50,50) %}
     {# {% set showcase_image = page.media.images|first.grayscale().contrast(20).brightness(-125).colorize(-35,81,122) %} #}
-    {% set showcase_image = page.media[header.landing.image].contrast(20).brightness(-110).colorize(55,55,55) %}
+    {# {% set showcase_image = page.media[header.landing.image].contrast(20).brightness(-110).colorize(55,55,55) %} #}
     <section id="landing" style="background-image: url({{ showcase_image.url }});">
         <div class="container">
             <div class="row">
